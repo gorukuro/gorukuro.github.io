@@ -9,9 +9,17 @@
   <script>
     function redirect(){
       const server = "https://raw.githubusercontent.com/gorukuro/gorukuro.github.io/master/data.json";
+      const params = new URLSearchParams(document.location.search),
+          p = params.get("p");
+      $.get(server, (data, status) => {
+        // console.log(data);
+        const dat = JSON.parse(data).data;
+        const v = dat.filter(e=>{return e.key == p});
 
-      $.get(server, (err, data) => {
-        console.log(data);
+        if(v.length){
+          document.location.href = v[0].url;
+        }
+
       })
     }
   </script>
