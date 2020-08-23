@@ -1,8 +1,18 @@
 <html>
   <head>
     <title>profile</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   </head>
   <body>
     <h1>hello world</h1>
   </body>
+  <script>
+    function redirect(){
+      const server = "https://raw.githubusercontent.com/gorukuro/gorukuro.github.io/master/data.json";
+
+      $(server, (err, data) => {
+        console.log(data);
+      })
+    }
+  </script>
 </html>
